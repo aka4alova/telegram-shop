@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Магазин капкейков</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .product { margin: 20px 0; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>🧁 Капкейки</h2>
+  <div class="product">
+    <img src="https://via.placeholder.com/150" alt="капкейк">
+    <p>Ванильный капкейк – 300₽</p>
+    <button onclick="buy()">Купить</button>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    function buy() {
+      tg.sendData(JSON.stringify({
+        product: "Капкейк",
+        price: 300
+      }));
+    }
+  </script>
+</body>
+</html>
